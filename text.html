@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .text-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            overflow: hidden;
+            margin-bottom: 10px; /* Add margin between the two lines */
+        }
+
+        .typing-line {
+            overflow: hidden;
+            white-space: nowrap;
+            font-size: 24px; /* Increase font size */
+            font-family: 'Arial', sans-serif; /* Change font family if needed */
+            color: #3498db; /* Blue color */
+            animation: typingAnimation 5s steps(40) forwards, bounceAnimation 0.5s 5s ease infinite;
+        }
+
+        @keyframes typingAnimation {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes bounceAnimation {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-15px);
+            }
+            60% {
+                transform: translateY(-7px);
+            }
+        }
+    </style>
+    <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function startAnimation() {
+            await sleep(5000); // Wait for the typing animation to finish (5s)
+            bounceAnimation();
+        }
+
+        function bounceAnimation() {
+            document.querySelector('.typing-line').style.animation = 'bounceAnimation 0.5s ease';
+            setTimeout(() => {
+                document.querySelector('.typing-line').style.animation = 'none'; // Remove the bounce animation
+                void document.querySelector('.typing-line').offsetWidth; // Trigger reflow
+                document.querySelector('.typing-line').style.animation = null; // Reapply animation
+            }, 500);
+        }
+
+        startAnimation();
+    </script>
+    <title>Your Webpage</title>
+</head>
+<body>
+
+<div class="text-container">
+    <h1>Welcome to Your Webpage we create</h1>
+    <div class="typing-line">facebook twitter instagram xoom</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+.text-container {
+    background-color: none;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.typing-line {
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 48px; /* Increase font size */
+    font-family: 'Arial', sans-serif; /* Change font family if needed */
+    color: #f3e4d2; /* Blue color */
+    animation: typingAnimation 5s steps(40) forwards, colorChange 1s 5s infinite alternate, restartAnimation 1s 8s forwards;
+}
+
+@keyframes typingAnimation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes colorChange {
+    to {
+        color: #f3f3f3; /* Red color */
+    }
+}
+
+@keyframes restartAnimation {
+    from, to {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
